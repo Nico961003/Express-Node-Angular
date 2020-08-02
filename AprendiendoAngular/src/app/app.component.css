@@ -1,0 +1,541 @@
+        /* En cc existen 3 tipos de selectores
+    body
+    #id   --- es decir asigna estilos segun el id
+    .clase
+*/
+        /* se procede a hacer una regla de css */
+        
+        body {
+            text-align: center;
+            /*conb margin y pading le quitamos el borde
+    al rededor de la página*/
+            margin: 0px;
+            padding: 0px;
+            /* Fuente del body , cada fuente depende tambien del sistema
+    operativo y se adapta a ellos pero code te da sugerencias
+    y resalta las posibles fuentes que estaran en todos los SO
+    */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            /* Suavizar la fuente con web-kit*/
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smooting: antialiased;
+            /* mozila en mac*/
+            -moz-osx-font-smoothing: antialiased;
+        }
+        
+        #header {
+            /* border: 1px solid black;*/
+            height: 120px;
+            width: 100%;
+            background: white;
+            /* border-bottom es por debajo del elemento */
+            border-bottom: 1px solid #ccc;
+            border-top: 5px solid #ff2525;
+        }
+        /* centrar contenido */
+        
+        .center {
+            /* Se puede centrar por porcentajes */
+            width: 75%;
+            /* con el auto centra automaticamente el elemento dentro del div 
+    que contiene ese elemento
+    */
+            margin: 0px auto;
+        }
+        /* almohadilla logo
+recordando que el id="logo" es un div
+*/
+        
+        #logo {
+            width: 30%;
+            font-size: 20px;
+            float: left;
+            margin-top: 35px;
+        }
+        /*De esta forma se selecciona el elemento logo
+y luego la imagen dentro del logo
+*/
+        
+        #logo img {
+            /*cuando un elemento se comporta como block o bloque es mas 
+    facil manipularlo, darle margenes , se puede flotar
+    y manmipularlo mucho mejor
+    */
+            display: block;
+            float: left;
+            height: 60px;
+            /* Margin top es el maegen de arriba hacia abajo*/
+            margin-top: -17px;
+            /* margen derecho */
+            margin-right: 10px;
+            /* animaciones 
+    dura 30 segundos y al ser linear no habra cambios de 
+    velocidad
+    */
+            animation: latir infinite 1.5s linear;
+        }
+        
+        @keyframes latir {
+            /* 10%{
+        height: 100px;
+    }
+    100% {
+        height: 200px;
+    }*/
+            /* desde que inicia hasta que termine con from - to */
+            0% {
+                /* con scale hace que inicie en un tamñao y vaya creciendo */
+                transform: scale(1, 1);
+            }
+            50% {
+                transform: scale(1.02, 1.02);
+            }
+            55% {
+                transform: scale(0.95, 0.95);
+            }
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+        
+        #brand {
+            display: block;
+            margin: 0px;
+            float: left;
+        }
+        
+        #menu {
+            width: 70%;
+            float: right;
+            font-size: 18px;
+        }
+        
+        #menu ul {
+            /* la altura de la linea, altura que los elementos van a tener alli
+    espaciado
+    */
+            line-height: 55px;
+            width: 70%;
+            float: right;
+        }
+        
+        #menu ul li {
+            /* que todo quede en lionea y como un bloque */
+            display: inline-block;
+            /*Sin estilo de lista
+    los puntos o las viñetas 
+    */
+            list-style: none;
+            height: 40px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        /* arreglo  */
+        
+        #menu a {
+            text-decoration: none;
+            color: #444;
+            /* cuando se haga hover cambia el color */
+            transition: 400ms all;
+        }
+        /* Para remarcar el elemento cuando este seleccionado se usa
+        el .active y usar el !important
+        */
+        
+        #menu a:hover,
+        .active {
+            color: #ff2525 !important;
+        }
+        /* Esta propiedad sirve para evitar que los elementos se encimen 
+al momento de reducir la pantalla, es una buena practica */
+        
+        .clearfix {
+            /* todo quede limpio*/
+            clear: both;
+            /* nada flotando dentro de el */
+            float: none;
+        }
+        
+        #slider {
+            width: 100%;
+            background: #61dafb;
+            height: 356px;
+            /* con line height el texto se queda en medio de la altura 
+    o segun los pixeles que se le asignen
+    */
+            /*line-height: 320px;*/
+            color: white;
+            /* sombreado o sombra */
+            text-shadow: 0px 0px 5px #444;
+            /* degradado: buscar en google css gradient generator
+    se puede ver los tipos de degradados al gusto
+    y solo copias y pegas el css que te arroja
+    */
+            background: rgb(219, 0, 58);
+            background: linear-gradient(90deg, rgba(219, 0, 58, 1) 0%, rgba(255, 68, 110, 1) 49%, rgba(219, 0, 58, 1) 100%);
+        }
+        /* modificar estilos del h1 para que no meta el margen superior */
+        
+        #slider h1 {
+            /* esta configuracion sirve para todos los navegadores */
+            margin-top: 100px;
+            padding: 0px;
+            padding-top: 138px;
+            text-align: center;
+        }
+        
+        .btn-white {
+            display: block;
+            color: rgba(88, 88, 88);
+            background: white;
+            padding: 10px;
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            /* centrar */
+            margin: 0px auto;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-shadow: none;
+            text-decoration: none;
+            /* caja con sombra el 444 es el difuminado*/
+            box-shadow: 0px 0px 5px #444;
+            margin-top: 40px;
+            /* redondeando bordes */
+            border-radius: 4px;
+            /* agregar siempre que hay un hover y le dara mejor efecto*/
+            transition: 1000ms all;
+        }
+        
+        .btn-white:hover {
+            background-color: #444;
+            color: white;
+        }
+        /* entre mas especifico css, mejor */
+        
+        #slider.slider-small {
+            height: 150px;
+        }
+        
+        #slider.slider-small h1 {
+            /* esta configuracion sirve para todos los navegadores */
+            margin-top: 100px;
+            padding: 0px;
+            padding-top: 53px;
+            text-align: center;
+        }
+        /* Configuracion de la barra de busqueda y articulos */
+        
+        #content {
+            width: 70%;
+            float: left;
+            /* los bordes ayudan a identificar la posicion en pantalla del componente */
+            /* border: 1px solid red;*/
+            /* tamaño del borde con min-heigh */
+            /* tamaño del contenido principal min-height */
+            min-height: 650px;
+            margin-right: 25px;
+        }
+        
+        #sidebar {
+            width: 25%;
+            float: left;
+            /* border: 1px solid green;*/
+        }
+        
+        .sidebar-item {
+            background: #f7f7f7;
+            /* pading quita los bordes */
+            padding: 7px;
+            margin-top: 30px;
+        }
+        
+        .sidebar-item h3 {
+            text-transform: uppercase;
+            font-size: 16px;
+            /* tamaño de margen */
+            margin: 0px;
+            /* borde solo debajo de los h3*/
+            border-bottom: 3px solid #ccc;
+            padding-bottom: 10px;
+            /* para separar del contenido de abajo */
+            /* los bottom son para el contenido de abajo */
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-item .btn {
+            margin: 0px auto;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            /* display block ocupa todo el ancho es necesario cuando
+    se hace uso del margin top 
+    display block ocupa todo el ancho
+    */
+            display: block;
+            background: black;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            /* quitar la barra o linea que tiene debajo, como enlace*/
+            text-decoration: none;
+            max-width: 120px;
+            border: none;
+        }
+        
+        .btn-success {
+            background: rgb(24, 224, 24);
+            transition: 1000ms;
+        }
+        
+        .btn-success:hover {
+            background: black;
+            color: white;
+        }
+        /* input = atributo Type = valor*/
+        /* se puede dar el mismo estilo a dos tags con la coma*/
+        
+        input[type="text"] {
+            width: 90%;
+            min-height: 30px;
+            border: 1px solid #ccc;
+            margin-bottom: 4px;
+            padding: 3px;
+            transition: 300ms all;
+        }
+        /* cree esta para que no alterara la aprte del input en el buscador*/
+        
+        .form-group input[type="text"] {
+            width: 100%;
+            min-height: 30px;
+            border: 1px solid #ccc;
+            margin-bottom: 4px;
+            padding: 3px;
+            transition: 300ms all;
+        }
+        
+        textarea[type="text"] {
+            width: 100%;
+            min-height: 30px;
+            border: 1px solid #ccc;
+            margin-bottom: 4px;
+            padding: 3px;
+            transition: 300ms all;
+        }
+        /* el focus (el enfocado en elemento) en css se hace con inset*/
+        
+        input[type="text"]:focus,
+        textarea:focus {
+            box-shadow: 0px 0px 5px #ccc inset;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 150px;
+            max-width: 100%;
+            min-width: 100%;
+            /* que ya no puedan hacerce mas pequeños o mas grandes de 150px */
+            min-height: 150px;
+            max-height: 150px;
+        }
+        
+        .radibuttons {
+            margin-top: 10px;
+            float: left;
+            margin-bottom: 10px;
+        }
+        
+        .mid-form {
+            width: 60%;
+            margin: 0px auto;
+        }
+        
+        .mid-form label {
+            display: block;
+            text-align: left;
+            float: left;
+            /* margen inferior */
+            margin-bottom: 5px;
+            font-size: 17px;
+            /* separacion entre un campo de otro */
+            margin-top: 10px;
+        }
+        
+        #footer {
+            background: #f7f7f7;
+            width: 100%;
+            height: 70px;
+            line-height: 72px;
+            color: #444;
+        }
+        
+        #footer p {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .article-item {
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            text-align: left;
+        }
+        
+        .article-item .image-wrap {
+            width: 130px;
+            height: 130px;
+            /* todo lo que sobre de imagen se oculta con overflow: hidden */
+            overflow: hidden;
+            float: left;
+            /* margen para separar a la derecha */
+            margin-right: 15px;
+            border: 1px solid #ccc;
+        }
+        
+        .article-item .image-wrap img {
+            height: 100%;
+            text-align: center;
+        }
+        
+        .article-item h2 {
+            display: block;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            margin-bottom: 7px;
+        }
+        
+        .article-item .date {
+            display: block;
+            width: 100%;
+            color: rgb(190, 190, 190);
+        }
+        
+        .article-item a {
+            display: block;
+            color: #444;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        
+        .article-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .subheader {
+            font-size: 38px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .article-detail .image-wrap {
+            float: none;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .article-detail .image-wrap img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .article-detail .subheader {
+            margin-bottom: 0px;
+            border: none;
+            margin-top: 15px;
+        }
+        /* RESPONSIVE */
+        /* media querys 
+estos funcionan respecto a los tamaños de la pantalla
+*/
+        /* esto se puede ver en la pestaña de desarrollador : vista responsive en los 
+navegadores */
+        
+        @media (max-width: 1290px) {
+            .center {
+                width: 85%;
+            }
+        }
+        
+        @media (max-width: 1138px) {
+            .center {
+                width: 95%;
+            }
+            #menu ul {
+                width: auto;
+            }
+        }
+        
+        @media (max-width: 774px) {
+            #logo {
+                float: none;
+                width: 240px;
+                margin: 0px auto;
+                margin-top: 20px;
+            }
+            #menu,
+            #menu ul {
+                clear: both;
+                float: none;
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+                line-height: 43px;
+            }
+            #content {
+                float: none;
+                width: 100%;
+            }
+            #sidebar {
+                float: none;
+                width: 60%;
+                margin: 0px auto;
+                margin-bottom: 50px;
+            }
+            #slider h1 {
+                padding-top: 115px;
+                font-size: 25px;
+            }
+            .mid-form {
+                width: 70%;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            #header {
+                min-height: 130px;
+                /* si se sale algun elemento del menu que lo oculte
+                esto no destrozara el diseño
+                */
+                overflow: hidden;
+            }
+            #menu,
+            #menu ul {
+                line-height: 50px;
+            }
+            #menu,
+            #menu ul li {
+                margin-left: 7px;
+                margin-right: 7px;
+            }
+            #slider {
+                height: 180px;
+            }
+            #slider h1 {
+                font-size: 19px;
+                padding-top: 30px;
+            }
+            #slider .btn-white {
+                margin-top: 20px;
+            }
+            #slider.slider-samll {
+                height: 100px;
+            }
+            #slider.slider-samll h1 {
+                padding-top: 35px;
+            }
+        }

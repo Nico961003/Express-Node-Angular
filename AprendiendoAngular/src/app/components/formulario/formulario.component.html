@@ -1,0 +1,76 @@
+<app-slider [nombre]="'Formulario'" [size]="'small'"></app-slider>
+
+<div class="center">
+    <section id="content">
+        <h1 class="subheader">Formulario</h1>
+
+        <!--
+        <div id="datos-al-vuelo" *ngIf="user.nombre">
+            <h2 class="subheader">Datos al vuelo</h2>
+            <ul>
+                <li>{{user.nombre}}</li>
+                <li>{{user.apellidos}}</li>
+                <li>{{user.bio}}</li>
+                <li>{{user.genero}}</li>
+            </ul>
+        </div>
+        -->
+
+        <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <!--Para tener mejor organizado se declara esta clase-->
+            <div class="form-group">
+                <label form="nombre">Nombre</label>
+                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required pattern="[a-zA-Z]+" />
+
+                <small *ngIf="!nombre.valid && nombre.touched">
+                    El nombre no es válido
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label form="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required pattern="[a-zA-Z]+" />
+
+                <small *ngIf="!apellidos.valid && apellidos.touched">
+                    El apellido no es válido
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label form="bio">Biografía</label>
+                <textarea type="text" name="bio" #bio="ngModel" [(ngModel)]="user.bio" required></textarea>
+
+                <small *ngIf="!bio.valid && bio.touched">
+                     La Biógrafia no es válida
+                </small>
+            </div>
+
+            <div class="form-group radibuttons">
+                <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" />Hombre
+                <input type="radio" name="genero" value="mujer" #genero="ngModel" [(ngModel)]="user.genero" />Mujer
+                <input type="radio" name="genero" value="otro" #genero="ngModel" [(ngModel)]="user.genero" />Otro
+
+                <small *ngIf="!genero.valid && genero.touched">
+                    El genero no es válido
+               </small>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input type="submit" value="enviar" class="btn btn-success" [disabled]="userForm.invalid" />
+
+        </form>
+
+        <h2 class="subheader">Eventos</h2>
+        <button (click)="hasDadoClick()">Dale click</button>
+        <!-- blur refleja cuando has salido de un input-->
+        <input type="text" [(ngModel)]="campo" (blur)="hasSalido()" /> <br> {{campo}} <br/>
+        <!-- keyup se ejecuta cuando pulsas alguna letra del kerboard en especifico -->
+        <input type="text" [(ngModel)]="campo2" (keyup.enter)="hasPulsado()" /> <br> {{campo2}} <br/>
+
+
+
+    </section>
+
+    <app-sidebar></app-sidebar>
+</div>

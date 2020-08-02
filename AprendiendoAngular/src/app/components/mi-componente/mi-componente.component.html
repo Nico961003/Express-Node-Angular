@@ -1,0 +1,14 @@
+<h1> {{title}} 2</h1>
+<h2> {{year}} 2</h2>
+<p> {{comentario}} 2</p>
+<h1> Component.ts <strong> Es la logica </strong> </h1>
+<h1> Component.html o el template (es lo mismo) <strong> Es la vista </strong> </h1>
+<h3> Se pueden enviar las clases del .ts a la vista</h3>
+<hr/> Imprimiendo desde el template de mi-componente
+<p>Se pueden imprimir aqui por que estan cargados de manera global (los componentes)</p>
+<button (click)="ocultarPeliculas()">Ocultar peliculas</button>
+<div *ngIf="mostrarPeliculas">
+    <peliculas></peliculas>
+</div>
+
+<pruebas></pruebas>

@@ -1,0 +1,53 @@
+<!-- la etiqueta header
+     Representa la cabecera del sitio web a nivel semantico es lo mejor -->
+<header id="header">
+    <div class="center">
+        <!--LOGO -->
+        <div id="logo">
+            <img src="assets/images/Angular.svg" class="app-logo" alt="logotipo" />
+            <!-- brand es como la marca del sitio-->
+            <span id="brand">
+                    <strong>Curso</strong>Angular
+                </span>
+
+        </div>
+
+        <!--MENU NAVEGACION -->
+        <!-- Representa los links que lleva a todas las paginas y es buena practica usar 
+            esa etiqueta (nav) -->
+        <nav id="menu">
+            <ul>
+                <li>
+                    <!-- Una directiva es como un atributo para
+                    un jtml y se va  a usar paara redireccionar 
+                    en el menú conocido como routerLink
+
+                    Para que el actrive del css funcione se usa la 
+                    directiva routerLinkActive
+
+                    en routerLink se pueden enviar parametros como en
+                    el navigate
+                    -->
+                    <a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/blog']" [routerLinkActive]="['active']">Blog</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/formulario']" [routerLinkActive]="['active']">Formulario</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/peliculas']" [routerLinkActive]="['active']">Peliculas </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/pagina-de-pruebas']" [routerLinkActive]="['active']">Página 1 </a>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- Limpiar los flotados (para que no se cuelen datos 
+            cuando se reduzca la pantalla-->
+        <div class="clearfix"></div>
+
+    </div>
+</header>

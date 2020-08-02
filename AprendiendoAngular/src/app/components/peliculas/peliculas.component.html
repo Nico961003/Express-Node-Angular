@@ -1,0 +1,57 @@
+<app-slider [nombre]="'Peliculas'" [size]="'small'">
+</app-slider>
+
+<div class="center">
+
+    <section id="content">
+
+        <div id="favorita" *ngIf="favorita">
+            <!-- UNA PIPE ES UNA TUVERIA A LA CUAL SE LE ASIGNA UN NOMBRE
+            existen varias las cuales se pueden visualizar en la pagina oficial 
+            de angular
+            -->
+            <h2 class="subheader"> Pelicula favorita </h2>
+            <h4>{{favorita.title | uppercase}}</h4>
+            <h5>{{favorita.year | esPar }}</h5>
+            <h5>{{ this.fecha | date: 'dd/MM/yyyy' }}</h5>
+        </div>
+
+        <!--
+        <h1>{{titulo}}</h1>
+        <button (click)="cambiarTitulo()">Pulsame</button>
+
+        <hr/>
+        <h2>Mostrar primera pelicula</h2>
+        {{peliculas[0].title}}
+
+        <!-- Una directiva es un atributo que se le pone a un elemento 
+html que agrega una funcionalidad extra a ese html
+
+        <hr/>
+        <h2>Mostrar el numero de peliculas</h2>
+
+        <div *ngIf="peliculas.length <= 3 ">
+            <p>Hay pocas peliculas</p>
+        </div>
+
+
+        <div *ngIf="peliculas.length > 3 ">
+            Hay muchas peliculas
+        </div>
+
+        <p>{{peliculas.length}}</p>
+        -->
+        <h2 class="subheader">Listado de peliculas</h2>
+        <div id="articles" *ngIf="peliculas">
+            <!-- por cada vuelta que le des al array, creame una variable con let
+        que se llame peliculas
+        por cada iteracion que le agras al bucle de peliculas creame el objeto pelicula
+        -->
+            <div *ngFor="let pelicula of peliculas; let i = index">
+                <app-pelicula [pelicula]="pelicula" (MarcarFavorita)="mostrarFavorita($event)"></app-pelicula>
+            </div>
+        </div>
+    </section>
+
+    <app-sidebar></app-sidebar>
+</div>

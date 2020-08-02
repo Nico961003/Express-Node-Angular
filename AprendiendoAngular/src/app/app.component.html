@@ -1,0 +1,10 @@
+<app-header *ngIf="router.url != '/login' && router.url != '/register'">
+</app-header>
+
+<!-- con esta etiquete, se va al router se ve que rutas estan creadas
+        verifica que rutas estan asociadas o cargadas y las vuelve dinamica
+        a traves de instancias para que se puedan cargar a traves de la url
+        -->
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="router.url != '/login' && router.url != '/register'"></app-footer>
