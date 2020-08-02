@@ -103,7 +103,7 @@ var articleController = require('../controllers/article');
 
 // creando middleware para subida de imagenes
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: '../upload/articles' });
+var md_upload = multipart({ uploadDir: './Backend/upload/articles' });
 
 // Rutas de prueba
 router.post('/datos-curso', articleController.datosCruso);
