@@ -19,7 +19,7 @@ import { SigninComponent } from './components/signin/signin.component';
 // configuracion de todas las rutas que yo quiero crear
 // importante dejar la ruta de error al ultimo para que no haya errores
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: SigninComponent },
     { path: 'home', component: HomeComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'blog/crear', component: ArticleNewComponent },

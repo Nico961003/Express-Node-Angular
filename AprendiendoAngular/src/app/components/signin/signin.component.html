@@ -1,22 +1,18 @@
-<div class="row">
-    <div class="col-md-4 mx-auto">
-        <div class="card">
-            <div class="card-header">
-                SignIn
-            </div>
-            <div class="card-body">
-                <form (submit)="signIn()">
-                    <div class="form-group">
-                        <input type="text" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required>
-                    </div>
-                    <button class="btn btn-success btn-block">
-                        SignIn
+<body>
+    <div class="center">
+        <h1 class="subheader">Inicio de sesión</h1>
+        <div class="card-body">
+            <form (submit)="signIn()" class="mid-form">
+                <div class="form-group">
+                    <input [(ngModel)]="user.email" name="email" class="usuario" placeholder="Email" required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="user.password" name="password" class="contrasenia" placeholder="Password" required>
+                </div>
+                <button style="display: block; margin-left: 147px; margin-top: 10%;" class="btn btn-success btn-block">
+                        Entrar
                     </button>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
-</div>
+</body>

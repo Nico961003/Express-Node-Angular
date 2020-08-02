@@ -1,0 +1,25 @@
+body {
+    display: block;
+    margin-top: 5%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 49%, rgba(255, 255, 255, 1) 100%);
+}
+
+.usuario {
+    width: 50%;
+    min-height: 30px;
+    border: 1px solid #ccc;
+    margin-bottom: 4px;
+    padding: 3px;
+    transition: 300ms all;
+}
+
+.contrasenia {
+    width: 50%;
+    min-height: 30px;
+    border: 1px solid #ccc;
+    margin-bottom: 4px;
+    padding: 3px;
+    transition: 300ms all;
+    font-family: 'pass';
+}

@@ -1,4 +1,4 @@
-<app-header *ngIf="router.url != '/login' && router.url != '/register'">
+<app-header *ngIf="router.url != '/' && router.url != '/signin'">
 </app-header>
 
 <!-- con esta etiquete, se va al router se ve que rutas estan creadas
@@ -7,4 +7,4 @@
         -->
 <router-outlet></router-outlet>
 
-<app-footer *ngIf="router.url != '/login' && router.url != '/register'"></app-footer>
+<app-footer *ngIf="router.url != '/' && router.url != '/signin'"></app-footer>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service'
 import { Router } from '@angular/router'
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-signin',
@@ -29,7 +30,10 @@ export class SigninComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.router.navigate(['/blog']);
         },
-        err => console.log(err)
+        err => {
+          console.log(err)
+          swal("Error", "Usuario o contraseña invalidos", "warning");
+        }
       )
   }
 
