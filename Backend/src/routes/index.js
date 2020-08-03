@@ -1,23 +1,44 @@
+// requerimos desde express la funcion router
 const { Router } = require('express');
+// el objeto router sirve para definir urls
 const router = Router();
-
+// importando el modelo del usuario 
+// se utiliza la interaccion con la BD para guardar usuario, consultar, etc
 const User = require('../models/User');
-
+// en una constante (jwt) se requiere lo que viene del modulo jsonwebtoken
+// previamente instalado con los comandos de npm
 const jwt = require('jsonwebtoken');
 
 router.get('/', (req, res) => {
     res.send('hello')
 });
-
+// registradno un usuario
 router.post('/signup', async(req, res) => {
+    // viendo el contenido del request body (es una peticion)
+    // guarda en una constante la propiedad email y password
     const { email, password } = req.body;
+    // imprime en consola
+    console.log(email, password);
+    // para un nuevo usuario se necesita el email y la pass
+    // este nuevo usuario se guarda en una nueva constante (newUser)
     const newUser = new User({ email, password });
+    // guardando el nuevo dato
+    // .save es un metodo asincrono es decir que tarda un tiempo en guardarse
+    // para continuar con el proceso del servidor sin que interrumpa esto se usa await
+    // es decir se realizara el save mientras el servidor continua con sus demas funciones
     await newUser.save();
+    // se le asigna un token al usuario para que este pueda autenticarse con el
+    // y pueda seguir trabajando con las funciones del servidor
+
+    // la funcion sign debe llevar dentro  el paylaod (dato que queremos guardar
+    // seguido de una palabra secreta (lo ideal es guardarla en una variable de entorno)
     const token = await jwt.sign({ _id: newUser._id }, 'secretkey');
+    // responde con un json el token que se ha creado (se ve en ocnsola del navegador)
     res.status(200).json({ token });
 });
-
+// login
 router.post('/signin', async(req, res) => {
+    // recibe un usuario y una contraseña
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
